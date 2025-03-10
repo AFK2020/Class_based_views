@@ -1,0 +1,20 @@
+
+<h1>Hello Afifa</h1>
+<h2> To do List </h2>
+<a href="{% url 'task-create'%}"> Add Task </a>
+
+<table>
+    <tr>
+        <th>Item</th>
+        {% comment %} Header tag in html {% endcomment %}
+    </tr>
+    {% for task in tasks %}
+    <tr> 
+        <td> {{task.title}} </td>
+        <td> <a href={% url 'task' task.id %}> View </a></td>
+    </tr>
+    {% empty %}
+    <h3> No items in list </h3>
+    {% endfor %}
+
+</table>
